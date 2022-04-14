@@ -41,11 +41,19 @@ async def on_message(message):
     elif '小斯' in message.content:
         await message.channel.send("找主人嗎？")
     elif '午安咪姆' in message.content:
-        await message.channel.send("都不跟我說的嗎？")
+        await message.channel.send("都不跟姆咪說嗎")
     elif '午安姆咪' in message.content:
-        await message.channel.send("午安安～")
+        await message.channel.send("姆咪也說午安安")
+    elif '早安咪姆' in message.content:
+        await message.channel.send("姆咪也想要早安！")
+    elif '早安姆咪' in message.content:
+        await message.channel.send("早安安ヾ(･ω･*)ﾉ")
     elif '咪姆好可愛' in message.content:
-        await message.channel.send("嗯？\n我也很可愛！")
+        await message.channel.send("姆咪也很可愛:emoji_6:")
+    elif '好漂亮' in message.content:
+        await message.channel.send("姆咪也很漂亮:emoji_6:")
+    elif '想睡覺' in message.content:
+        await message.channel.send("睡屁睡起來嗨")
     elif '咪姆我要抽扭蛋' in message.content:
         await message.channel.send("扭屁扭！")
 
