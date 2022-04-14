@@ -29,12 +29,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == bot.user:
         return
-    if message.content.startswith('姆咪'):
-        tmp = message.content.split(" ",2)
-        if len(tmp) == 1:
-            await message.channel.send("姆咪？？？")
-        else:
-            await message.channel.send(tmp[1])
+
     if message.content == '召喚卡牌':
         await DM(message.author, "msg")
     elif db.get_data(message.content) != False:
@@ -46,6 +41,12 @@ async def on_message(message):
         else:
             db.insert_data(tmp[1], tmp[2])
             await message.channel.send("新增成功")
+    elif message.content.startswith('姆咪'):
+        tmp = message.content.split(" ",2)
+        if len(tmp) == 1:
+            await message.channel.send("姆咪？？？")
+        else:
+            await message.channel.send(tmp[1])
 
 
 
