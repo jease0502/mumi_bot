@@ -39,6 +39,14 @@ async def on_message(message):
         await DM(message.author, "msg")
     elif db.get_data(message.content) != None:
         await message.channel.send(db.get_data(message.content))
+    elif message.content.startswith('姆咪新增'):
+        tmp = message.content.split(" ",3)
+        if len(tmp) == 1:
+            await message.channel.send("新增失敗")
+        else:
+            db.insert_data(tmp[1], tmp[2])
+            await message.channel.send("新增成功")
+
 
 
     if message.content.startswith('更改狀態'):
