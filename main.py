@@ -55,6 +55,8 @@ async def on_message(message):
         await message.channel.send("睡屁睡起來嗨")
     elif '咪姆我要抽扭蛋' in message.content:
         await message.channel.send("扭屁扭！")
+    elif '偷草莓' in message.content:
+        await message.channel.send("姆咪把你踹進湖裡")
 
 
     if message.content.startswith('更改狀態'):
