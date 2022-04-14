@@ -37,8 +37,7 @@ async def on_message(message):
             await message.channel.send(tmp[1])
     if message.content == '召喚卡牌':
         await DM(message.author, "msg")
-    elif db.get_data(message.content) != None:
-        print(db.get_data(message.content))
+    elif db.get_data(message.content) != False:
         await message.channel.send(db.get_data(message.content))
     # elif message.content.startswith('姆咪新增'):
     #     tmp = message.content.split(" ",3)
