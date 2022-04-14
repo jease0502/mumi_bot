@@ -13,6 +13,7 @@ intents.members = True
 
 @bot.command()
 async def DM(ctx, user: discord.User, message=None):
+    message = "神奇卡牌"
     await ctx.send(message)
 
 @bot.event
@@ -32,8 +33,8 @@ async def on_message(message):
             await message.channel.send("姆咪？？？")
         else:
             await message.channel.send(tmp[1])
-    if message.content == '瞅啥瞅？':
-        await DM(message.author, "瞅啥瞅？")
+    if message.content == '召喚卡牌':
+        await DM(message.author, "msg")
     elif message.content == '嗚嗚嗚':
         await message.channel.send("嗚嗚嗚摸摸頭！")
     elif '小斯' in message.content:
