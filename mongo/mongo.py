@@ -11,10 +11,10 @@ class MongoDB (object):
         return collection
 
     def get_data(self , msg):
-        if msg in self.data[msg]:
-            return self.data[msg]
-        else:
-            print("查無此資料")
+        try :
+            recall = self.data[msg]
+            return recall
+        except :
             return False
 
     def insert_data(self, answer , question):
