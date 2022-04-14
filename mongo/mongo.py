@@ -14,6 +14,7 @@ class MongoDB (object):
         if msg in self.data[msg]:
             return self.data[msg]
         else:
+            print("查無此資料")
             return None
 
     def insert_data(self, answer , question):
