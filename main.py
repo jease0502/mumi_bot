@@ -13,8 +13,6 @@ intents.members = True
 
 @bot.command()
 async def DM(ctx, user: discord.User, message=None):
-    message = message or "This Message is sent via DM"
-    print("message" , message)
     await ctx.send(message)
 
 @bot.event
