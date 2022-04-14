@@ -4,12 +4,14 @@
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
+from mongo.mongo import MongoDB
 import discord
 
 
 bot = commands.Bot(command_prefix='!')
 intents = discord.Intents.default()
 intents.members = True
+db = MongoDB()
 
 @bot.command()
 async def DM(ctx, user: discord.User, message=None):
@@ -35,28 +37,8 @@ async def on_message(message):
             await message.channel.send(tmp[1])
     if message.content == '召喚卡牌':
         await DM(message.author, "msg")
-    elif message.content == '嗚嗚嗚':
-        await message.channel.send("嗚嗚嗚摸摸頭！")
-    elif '小斯' in message.content:
-        await message.channel.send("找主人嗎？")
-    elif '午安咪姆' in message.content:
-        await message.channel.send("都不跟姆咪說嗎")
-    elif '午安姆咪' in message.content:
-        await message.channel.send("姆咪也說午安安")
-    elif '早安咪姆' in message.content:
-        await message.channel.send("姆咪也想要早安！")
-    elif '早安姆咪' in message.content:
-        await message.channel.send("早安安ヾ(･ω･*)ﾉ")
-    elif '咪姆好可愛' in message.content:
-        await message.channel.send("姆咪也很可愛:emoji_6:")
-    elif '好漂亮' in message.content:
-        await message.channel.send("姆咪也很漂亮:emoji_6:")
-    elif '想睡覺' in message.content:
-        await message.channel.send("睡屁睡起來嗨")
-    elif '咪姆我要抽扭蛋' in message.content:
-        await message.channel.send("扭屁扭！")
-    elif '偷草莓' in message.content:
-        await message.channel.send("姆咪把你踹進湖裡")
+    elif db.get_data(message.content) != None:
+        await message.channel.send(db.get_data(message.content))
 
 
     if message.content.startswith('更改狀態'):
