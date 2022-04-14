@@ -7,7 +7,7 @@ class MongoDB (object):
 
     def _init_get_data(self):
         mydb = self.myclient["mumi_msg"]
-        collection = mydb["msg"]
+        collection = mydb["msg"].find_one()
         return collection
 
     def get_data(self , msg):
